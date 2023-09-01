@@ -1,0 +1,1 @@
+export const WIN_INVOKE = 'win:invoke';

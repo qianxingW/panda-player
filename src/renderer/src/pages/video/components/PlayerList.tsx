@@ -1,6 +1,12 @@
+import { useContext } from 'react'
+import PlayerContext from '@renderer/store'
+
 import videoImg from '../../../assets/video.png'
 
 const PlayerList: React.FC = () => {
+  const {state} = useContext(PlayerContext);
+  console.log(state.openMenu);
+  
   return (
     <div className="video-live-list">
       <div className="video-live-card active">

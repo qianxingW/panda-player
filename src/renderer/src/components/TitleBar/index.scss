@@ -46,7 +46,8 @@
     z-index: 1000;
     height: 100%;
 
-    .titlebar-action {
+    .titlebar-action,
+    .titlebar-menu {
       display: flex;
 
       .titlebar-icon {

@@ -51,6 +51,9 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
+  // The ipc channel named win:invoke.
+  optimizer.registerFramelessWindowIpc()
+
   createWindow()
 
   app.on('activate', function () {
