@@ -1,6 +1,6 @@
 import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
-import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { electronApp, optimizer, is, platform } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
@@ -9,6 +9,8 @@ function createWindow(): void {
     width: 900,
     height: 670,
     show: false,
+    // 隐藏边框
+    frame: platform.isLinux,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {

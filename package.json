@@ -25,6 +25,7 @@
     "electron-updater": "^6.1.1"
   },
   "devDependencies": {
+    "@ant-design/icons": "^5.2.5",
     "@electron-toolkit/eslint-config-prettier": "^1.0.1",
     "@electron-toolkit/eslint-config-ts": "^1.0.0",
     "@electron-toolkit/tsconfig": "^1.0.1",
@@ -32,6 +33,7 @@
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.4",
+    "antd": "^5.8.5",
     "electron": "^25.6.0",
     "electron-builder": "^24.6.3",
     "electron-vite": "^1.0.27",
@@ -40,6 +42,7 @@
     "prettier": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.66.1",
     "typescript": "^5.1.6",
     "vite": "^4.4.9"
   }

@@ -1,0 +1,144 @@
+.video-container {
+  width: 100%;
+  display: flex;
+  height: calc(100% - 30px);
+
+  .video-player-wrapper {
+    position: relative;
+    flex: 1 0 auto;
+    background: rgba(0,0,0,.4);
+    border-radius: 4px;
+    overflow: hidden;
+
+    .player-container {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      font-family: PingFangSC-Regular;
+      font-size: 14px;
+      background: #000;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      overflow: hidden;
+      cursor: pointer;
+
+      video {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .video-live-list {
+    height: 100%;
+    background: rgba(0,0,0,.4);
+    border-radius: 4px;;
+    backdrop-filter: blur(4px);
+    width: 23.33rem;
+    flex: 0 0 23.33rem;
+    margin-left: 1.667rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .video-live-card {
+      width: 20.67rem;
+      height: 10.42rem;
+      position: relative;
+      cursor: pointer;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 1.333rem;
+
+      &.active {
+        &::before {
+          display: inline-block;
+          content: " ";
+          background: #1e80ff;
+          width: 10px;
+          height: 10px;
+          transform: rotate(45deg) translateY(-3px);
+          position: absolute;
+          left: -9px;
+          top: 50%;
+        }
+
+        .card-inner {
+          left: -2px;
+          top: -2px;
+          border: 2px solid #1e80ff;
+        }
+      }
+
+      &:hover {
+        .mask {
+          opacity: 0;
+        }
+      }
+
+      .card-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        position: absolute;
+        overflow: hidden;
+
+        .lazy {
+          position: relative;
+          object-fit: cover;
+        }
+
+        .cover-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .title-container {
+          background: linear-gradient(180deg,transparent,rgba(0,0,0,.6) 59.9%);
+          height: 4rem;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          box-sizing: border-box;
+          display: flex;
+          align-items: flex-end;
+          padding: 0 0.667rem 0.333rem;
+          z-index: 20;
+
+          .title {
+            font-size: 1.167rem;
+            color: #fff;
+            line-height: 2rem;
+            display: inline-block;
+            max-width: 232px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .mask {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0,0,0,.4);
+          z-index: 10;
+          transition: opacity .15s linear;
+        }
+      }
+    }
+  }
+}

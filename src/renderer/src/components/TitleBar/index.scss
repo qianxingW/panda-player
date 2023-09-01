@@ -1,0 +1,72 @@
+.titlebar-container {
+  -webkit-app-region: drag;
+  // background-color: rgb(60, 60, 60);
+  background-color: rgb(60, 60, 60);
+  color: rgb(204, 204, 204);
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  user-select: none;
+
+  .titlebar-logo {
+    width: 35px;
+    height: 100%;
+    position: relative;
+    z-index: 3000;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .titlebar-title {
+    flex: 0 1 auto;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 auto;
+    zoom: 1;
+    max-width: 320px;;
+    font-size: 13px;
+  }
+
+  .titlebar-options {
+    // 允许拖拽
+    -webkit-app-region: no-drag;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1000;
+    height: 100%;
+
+    .titlebar-action {
+      display: flex;
+
+      .titlebar-icon {
+        color: #ccc;
+        display: inline-block;
+        height: 100%;
+        width: 46px;
+        font-size: 16px;
+        line-height: 33px;
+  
+        &:hover {
+          background-color: hsla(0, 0%, 100%, 0.1);
+        }
+      }
+  
+      .titlebar-icon-close {
+        &:hover {
+          background-color: rgba(232, 17, 35, 0.9);
+        }
+      }
+    }
+  }
+}
