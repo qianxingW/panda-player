@@ -34,17 +34,8 @@ const TitleBar: React.FC = () => {
       </div>
       <div className='titlebar-title'>熊猫播放器</div>
       <div className='titlebar-options'>
-        <div className='titlebar-menu'>
-          <Popover
-            arrow={false}
-            trigger="click"
-            content={<Menu />}
-          >
-            <MenuOutlined
-              className='titlebar-icon'
-              onClick={onOpenMenuChange}
-            />
-          </Popover>
+        <div className='titlebar-tool'>
+          <Menu />
         </div>
         <div className='titlebar-action'>
           <MinusOutlined
@@ -55,6 +46,7 @@ const TitleBar: React.FC = () => {
             className='titlebar-icon'
             onClick={() => { handClick('max') }}
           />
+          {/* <SwitcherOutlined /> */}
           <CloseOutlined
             className='titlebar-icon titlebar-icon-close'
             onClick={() => { handClick('close') }}

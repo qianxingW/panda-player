@@ -4,7 +4,7 @@ const Player: React.FC = () => {
   return (
     <div className="video-player-wrapper">
       <div className="player-container">
-        <video controls autoPlay src={videoMp4} />
+        {/* <video controls autoPlay src={videoMp4} /> */}
       </div>
     </div>
   )

@@ -5,7 +5,6 @@ import videoImg from '../../../assets/video.png'
 
 const PlayerList: React.FC = () => {
   const {state} = useContext(PlayerContext);
-  console.log(state.openMenu);
   
   return (
     <div className="video-live-list">
