@@ -25,7 +25,6 @@ const TitleBar: React.FC = () => {
   const onOpenMenuChange = () => {
     dispath({ type: 'setOpenMenu', data: !openMenu })
   }
-  console.log(dispath);
   
   return (
     <div className='titlebar-container'>

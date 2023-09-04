@@ -3,6 +3,8 @@ import { join } from 'path'
 import { electronApp, optimizer, is, platform } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
+import registerIpc from './ipcEvents'
+
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -15,7 +17,8 @@ function createWindow(): void {
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+      webSecurity: false,
     }
   })
 
@@ -53,6 +56,9 @@ app.whenReady().then(() => {
 
   // The ipc channel named win:invoke.
   optimizer.registerFramelessWindowIpc()
+
+  // 注册ipc监听
+  registerIpc()
 
   createWindow()
 

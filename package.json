@@ -22,7 +22,8 @@
   "dependencies": {
     "@electron-toolkit/preload": "^2.0.0",
     "@electron-toolkit/utils": "^2.0.0",
-    "electron-updater": "^6.1.1"
+    "electron-updater": "^6.1.1",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@ant-design/icons": "^5.2.5",
