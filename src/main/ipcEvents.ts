@@ -1,11 +1,14 @@
 import { ipcMain, BrowserWindow, dialog } from "electron";
+import Store from 'electron-store'
 import { basename } from 'path'
 
-import { OPEN_FILE_DIALOG, SELECT_VIDEO_FILE } from '../common/events/constants';
+import * as events from '../common/events/constants';
 import { VideoFile } from '../common/types';
 
+const store = new Store();
+
 const registerIpc = () => {
-  ipcMain.on(OPEN_FILE_DIALOG, async (e) => {
+  ipcMain.on(events.OPEN_FILE_DIALOG, async (e) => {
     const extensions = ["mp4"]
     const win = BrowserWindow.fromWebContents(e.sender);
   
@@ -27,11 +30,19 @@ const registerIpc = () => {
             });
           });
 
-          e.sender.send(SELECT_VIDEO_FILE, videoFiles);
+          e.sender.send(events.SELECT_VIDEO_FILE, videoFiles);
         }
       }).catch(err => {
         console.log(err, 'eee');
       })
+  })
+
+  ipcMain.on(events.SET_STORE, async (_, key, value) => {
+    store.set(key, value)
+  })
+
+  ipcMain.handle(events.GET_STORE, (_, key) => {
+    return store.get(key)
   })
 }
 

@@ -7,7 +7,7 @@ import { cloneDeep } from 'lodash'
 import PlayerList from './components/PlayerList'
 import Player from './components/Player'
 
-import { SELECT_VIDEO_FILE } from '@common/events/constants'
+import { GET_STORE, SELECT_VIDEO_FILE, SET_STORE } from '@common/events/constants'
 import { getVideoInfo } from '@renderer/utils/_info'
 
 import '../../assets/video.scss'
@@ -16,6 +16,18 @@ import { VideoFile, VideoInfo } from '@common/types'
 const VideoPlayer: React.FC = () => {
   const { state, dispath } = useContext(PlayerContext);
   const { videoList } = state;
+
+  useEffect(() => {
+    window.electron.ipcRenderer.invoke(GET_STORE, 'videoList').then((videoLists: VideoInfo[]) => {
+      dispath({type: 'setVideoList', data: videoLists})
+    })
+
+    window.electron.ipcRenderer.invoke(GET_STORE, 'currentPlayerVideo').then((currentPlayerVideo: VideoInfo) => {
+      if(currentPlayerVideo) {
+        dispath({ type: 'setCurrentPlayerVideo', data: currentPlayerVideo })
+      }
+    })
+  }, [])
 
   useEffect(() => {
     // 监听打开文件
@@ -35,6 +47,7 @@ const VideoPlayer: React.FC = () => {
           videoLists = videoList.concat(results);
         }
         
+        window.electron.ipcRenderer.send(SET_STORE, 'videoList', videoLists )
         dispath({type: 'setVideoList', data: cloneDeep(videoLists)})
       })
     })

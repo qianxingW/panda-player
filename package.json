@@ -23,6 +23,7 @@
     "@electron-toolkit/preload": "^2.0.0",
     "@electron-toolkit/utils": "^2.0.0",
     "classname": "^0.0.0",
+    "electron-store": "^8.1.0",
     "electron-updater": "^6.1.1",
     "lodash": "^4.17.21",
     "xgplayer": "^3.0.9"

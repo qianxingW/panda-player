@@ -6,6 +6,7 @@ import { OpenFile } from '@renderer/components'
 import { VideoInfo } from '@common/types'
 
 import clsx from 'className';
+import { SET_STORE } from '@common/events/constants';
 
 const PlayerList: React.FC = () => {
   const { state, dispath } = useContext(PlayerContext);
@@ -13,6 +14,7 @@ const PlayerList: React.FC = () => {
 
   const handleClick = (item: VideoInfo) => {
     if (currentPlayerVideo.path !== item.path) {
+      window.electron.ipcRenderer.send(SET_STORE, 'currentPlayerVideo', item)
       dispath({ type: 'setCurrentPlayerVideo', data: item })
     }
   }
