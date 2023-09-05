@@ -5,9 +5,17 @@ import { OpenFile } from '@renderer/components'
 
 import { VideoInfo } from '@common/types'
 
+import clsx from 'className';
+
 const PlayerList: React.FC = () => {
-  const { state } = useContext(PlayerContext);
-  const { videoList } = state;
+  const { state, dispath } = useContext(PlayerContext);
+  const { videoList, currentPlayerVideo } = state;
+
+  const handleClick = (item: VideoInfo) => {
+    if (currentPlayerVideo.path !== item.path) {
+      dispath({ type: 'setCurrentPlayerVideo', data: item })
+    }
+  }
 
   return (
     <div className="video-live-list">
@@ -15,7 +23,12 @@ const PlayerList: React.FC = () => {
       {
         videoList.map((item: VideoInfo) => {
           return (
-            <div className="video-live-card active">
+            <div
+              className={clsx("video-live-card", {
+                active: item.path === currentPlayerVideo.path
+              })}
+              onClick={() => handleClick(item)}
+            >
               <div className="card-inner">
                 <img className="lazy cover-img" loading="eager" src={item.poster} />
                 <div className="title-container">

@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useMemo, useReducer } from 'react'
 import PlayerContext from './store'
 import { initialState, reducer } from './store/reducer'
 
@@ -8,11 +8,18 @@ import VideoPlayer from './pages/video'
 
 const App: React.FC = () => {
   const [state, dispath] = useReducer(reducer, initialState);
-  console.log(state.videoList, 'sdsadsa');
+
+  const contextValue = useMemo(() => {
+    return {
+      state,
+      dispath
+    }
+  }, [state, dispath])
+
   return (
     <>
       <PlayerContext.Provider
-        value={{ state, dispath }}
+        value={contextValue}
       >
         <TitleBar />
         <VideoPlayer />

@@ -1,5 +1,5 @@
 import { ipcMain, BrowserWindow, dialog } from "electron";
-import { basename, extname } from 'path'
+import { basename } from 'path'
 
 import { OPEN_FILE_DIALOG, SELECT_VIDEO_FILE } from '../common/events/constants';
 import { VideoFile } from '../common/types';
@@ -8,8 +8,7 @@ const registerIpc = () => {
   ipcMain.on(OPEN_FILE_DIALOG, async (e) => {
     const extensions = ["mp4"]
     const win = BrowserWindow.fromWebContents(e.sender);
-    console.log(win!, 'dds');
-    
+  
     win!.focus();
     dialog
       .showOpenDialog(win!, {
