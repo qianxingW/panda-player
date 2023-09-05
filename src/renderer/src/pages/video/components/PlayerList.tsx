@@ -24,6 +24,7 @@ const PlayerList: React.FC = () => {
         videoList.map((item: VideoInfo) => {
           return (
             <div
+              key={item.path}
               className={clsx("video-live-card", {
                 active: item.path === currentPlayerVideo.path
               })}

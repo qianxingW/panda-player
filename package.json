@@ -24,7 +24,8 @@
     "@electron-toolkit/utils": "^2.0.0",
     "classname": "^0.0.0",
     "electron-updater": "^6.1.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "xgplayer": "^3.0.9"
   },
   "devDependencies": {
     "@ant-design/icons": "^5.2.5",
@@ -46,7 +47,6 @@
     "react-dom": "^18.2.0",
     "sass": "^1.66.1",
     "typescript": "^5.1.6",
-    "video.js": "^8.5.2",
     "vite": "^4.4.9"
   }
 }

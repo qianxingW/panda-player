@@ -1,52 +1,27 @@
-import { useEffect, useRef } from "react";
-import videojs from "video.js";
-import "video.js/dist/video-js.css";
+import { useEffect, useRef } from 'react';
+import Player from 'xgplayer';
+import 'xgplayer/dist/index.min.css'
 
-const VideoJS = (props: { sources: any; onReady: any; }) => {
-  const videoRef = useRef<any>(null);
+const VideoJS = (props: { sources: any; }) => {
+  const { sources } = props;
   const playerRef = useRef<any>(null);
-  const { sources, onReady } = props;
-
-  const videoJsOptions = {
-    autoplay: false,
-    controls: true,
-    fill: true
-  }
 
   useEffect(() => {
     if (!playerRef.current) {
-      const videoElement = videoRef.current;
-      if (!videoElement) return;
-
-      const player = playerRef.current = videojs(videoElement, {
-        ...videoJsOptions,
-        sources: [sources],
-      }, () => {
-        onReady && onReady(player);
+      playerRef.current = new Player({
+        id: 'videoContainer',
+        url: sources.path,
+        fluid: true,
       });
     } else {
-      const player = playerRef.current;
-      player.src(sources.path);      
-      // player.autoplay(true);
+      playerRef.current.src = sources.path
     }
-  }, [sources, videoRef]);
 
-  useEffect(() => {
-    // const player = playerRef.current;
-
-    // return () => {
-    //   if (player) {
-    //     player.dispose();
-    //     // playerRef.current = null;
-    //   }
-    // };
-  }, [playerRef]);
+  }, [sources])
 
   return (
-    <div data-vjs-player>
-      <video ref={videoRef} className="video-js vjs-big-play-centered" />
-    </div>
-  );
+    <div id="videoContainer"></div>
+  )
 }
 
 export default VideoJS;
