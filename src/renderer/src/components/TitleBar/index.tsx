@@ -1,31 +1,19 @@
-import { useContext } from 'react';
-
-import { Popover } from 'antd';
 import {
   MinusOutlined,
   BorderOutlined,
   CloseOutlined,
-  MenuOutlined,
 } from '@ant-design/icons'
 
 import { Menu } from '../index'
 import logo from '../../../../../resources/icon.png'
 import { WIN_INVOKE } from '@common/events/constants';
-import PlayerContext from '@renderer/store';
-
 import './index.scss'
 
 const TitleBar: React.FC = () => {
-  const {state, dispath} = useContext(PlayerContext)
-  const { openMenu } = state;
   const handClick = (action: string): void  => {
     window.electron.ipcRenderer.send(WIN_INVOKE, action)
   }
 
-  const onOpenMenuChange = () => {
-    dispath({ type: 'setOpenMenu', data: !openMenu })
-  }
-  
   return (
     <div className='titlebar-container'>
       <div className='titlebar-logo'>
