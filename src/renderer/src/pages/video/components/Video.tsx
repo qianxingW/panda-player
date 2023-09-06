@@ -11,7 +11,8 @@ const VideoJS = (props: { sources: any; }) => {
       playerRef.current = new Player({
         id: 'videoContainer',
         url: sources.path,
-        fluid: true,
+        width: '100%',
+        height: '100%',
       });
     } else {
       playerRef.current.src = sources.path
