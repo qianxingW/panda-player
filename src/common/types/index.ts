@@ -8,4 +8,5 @@ export interface VideoInfo {
   path?: string,
   poster?: string,
   duration?: string,
+  currentTime?: number | undefined | unknown,
 }
