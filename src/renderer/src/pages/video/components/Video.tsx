@@ -13,6 +13,7 @@ const VideoJS = (props: { sources: any; onReady: any}) => {
         url: sources.path,
         width: '100%',
         height: '100%',
+        autoplay: true
       });
       onReady(playerRef.current)
      
