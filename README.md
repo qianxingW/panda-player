@@ -1,12 +1,8 @@
-# panda-player
+# panda-player 熊貓播放器
 
-An Electron application with React and TypeScript
+> Electron + React + Ant Design
 
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
-## Project Setup
+## 运行
 
 ### Install
 
@@ -32,3 +28,7 @@ $ yarn build:mac
 # For Linux
 $ yarn build:linux
 ```
+
+## 界面UI
+
+![主界面](./docs/images/ui1.jpg)
