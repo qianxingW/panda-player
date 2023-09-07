@@ -47,6 +47,7 @@
     .video-live-list {
       overflow: auto;
       height: calc(100% - 24px);
+      padding: 2px 8px;
 
       .video-live-card {
         width: 20.67rem;

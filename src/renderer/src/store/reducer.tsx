@@ -1,10 +1,5 @@
-import { VideoInfo } from "@common/types";
+import { initialStateType } from "@common/types";
 
-export interface initialStateType {
-  openMenu: boolean,
-	videoList: Array<VideoInfo> | [],
-	currentPlayerVideo: VideoInfo,
-}
 export const initialState: initialStateType = {
   openMenu: false,
 

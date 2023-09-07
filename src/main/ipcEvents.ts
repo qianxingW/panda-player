@@ -4,6 +4,7 @@ import { basename } from 'path'
 
 import * as events from '../common/events/constants';
 import { VideoFile } from '../common/types';
+import { handleWindowsJumpList } from "./workspacesHistory";
 
 const store = new Store();
 
@@ -38,6 +39,9 @@ const registerIpc = () => {
   })
 
   ipcMain.on(events.SET_STORE, async (_, key, value) => {
+    if(key === 'videoList') {
+      handleWindowsJumpList(value)
+    }
     store.set(key, value)
   })
 

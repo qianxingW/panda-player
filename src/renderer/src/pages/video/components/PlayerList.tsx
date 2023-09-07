@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import PlayerContext from '@renderer/store'
+import dayjs from 'dayjs'
 
 import {
   DeleteOutlined,
@@ -22,6 +23,7 @@ const PlayerList: React.FC = () => {
 
   const handleClick = (item: VideoInfo) => {
     if (currentPlayerVideo.path !== item.path) {
+      item.lastPlayTime = dayjs().valueOf()
       onSetPlayerVideo(item)
     }
   }

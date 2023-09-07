@@ -9,4 +9,11 @@ export interface VideoInfo {
   poster?: string,
   duration?: string,
   currentTime?: number | undefined | unknown,
+  lastPlayTime?: number
+}
+
+export interface initialStateType {
+  openMenu: boolean,
+	videoList: Array<VideoInfo> | [],
+	currentPlayerVideo: VideoInfo,
 }
