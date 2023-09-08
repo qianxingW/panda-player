@@ -12,8 +12,18 @@ export interface VideoInfo {
   lastPlayTime?: number
 }
 
+export interface MusicInfo {
+  name?: string,
+  path?: string,
+  poster?: string,
+  duration?: string,
+  currentTime?: number | undefined | unknown,
+  lastPlayTime?: number
+}
+
 export interface initialStateType {
   openMenu: boolean,
 	videoList: Array<VideoInfo> | [],
 	currentPlayerVideo: VideoInfo,
+  currentPlayerMusic: MusicInfo
 }

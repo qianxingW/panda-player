@@ -4,7 +4,9 @@ export const initialState: initialStateType = {
   openMenu: false,
 
 	videoList: [],
-	currentPlayerVideo: {}
+	currentPlayerVideo: {},
+
+	currentPlayerMusic: {}
 }
 
 export const reducer = (state: any, action: { type: any; data: any }) => {
